@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
   logo = require('./img/logo1.png');
   search = require('./img/search.png');
-  logout = require('./img/logout.png')
+  logout = require('./img/logout.png');
 
   constructor() { }
 
