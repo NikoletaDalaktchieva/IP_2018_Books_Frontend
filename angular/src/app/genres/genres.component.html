@@ -1,1 +1,9 @@
-<p> md-grid-list</p>
+<p>Genres</p>
+<ul>
+  <li href="#" *ngFor="let genre of genres"
+      (click)="open(onClick(genre))">
+    {{genre}}
+  </li>
+</ul>
+
+<p>{{bookGenre}}</p>

@@ -1,3 +1,25 @@
-mat-grid-tile {
-  background: lightblue;
+ul {
+  flex-direction: column;
+  flex-wrap: wrap;
+  display: flex;
+  height: 15vh;
 }
+ul li {
+  flex: 1 0 25%;
+}
+
+li {
+  font-style: italic;
+  font-size: 120%;
+  cursor: pointer;
+}
+
+p{
+  font-size: 200%;
+  width: 100%;
+  color: #C63D0F;
+  border-bottom: 1px solid #C63D0F;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+}
+
