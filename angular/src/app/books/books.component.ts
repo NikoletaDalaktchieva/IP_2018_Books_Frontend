@@ -9,24 +9,22 @@ import { BookService } from '../book.service';
 })
 export class BooksComponent implements OnInit {
 
-    books: Book[];
+  private sub: any;
+  books: Book[];
     book: Book;
-    title = 0;
+    public title = 0;
 
 
-  constructor(private bookService: BookService) {
+  constructor(private bookService: BookService
+  ) {
   }
 
   ngOnInit() {
     this.getBooks();
   }
 
-  getBooks(): void {
-    this.bookService.getBooks().subscribe(data => {
-      this.book = data;
-    });
-    this.title = 3;
-
+  getBooks(){
+    this.bookService.getBooks();
   }
 
 }
