@@ -25,7 +25,6 @@ import { MessageService } from './message.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpClientModule,
   ],
   providers: [BookService, MessageService,],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../book';
 import { BookService } from '../book.service';
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-books',
@@ -8,23 +9,23 @@ import { BookService } from '../book.service';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit {
+  config: { heroesUrl: any; textfile: any; };
 
-  private sub: any;
+  observableBooks: Observable<Book[]>;
   books: Book[];
-    book: Book;
-    public title = 0;
 
-
-  constructor(private bookService: BookService
-  ) {
-  }
+  constructor(private bookService: BookService) {}
 
   ngOnInit() {
     this.getBooks();
   }
 
   getBooks(){
-    this.bookService.getBooks();
+
+    this.observableBooks = this.bookService.getBooks();
+    this.observableBooks.subscribe(
+      books => this.books = books);
+
   }
 
 }

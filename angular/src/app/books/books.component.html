@@ -1,11 +1,11 @@
 
 {{title}}
+
 <ul>
-  <li *ngFor="let book of books"
-      [class.selected]="book === selectedBook"
-      (click)="onSelect(book)">
-    <span class="badge">{{book.id}}</span> {{book.name}}
+  <li *ngFor="let book of books" >
+    {{book.name}}
   </li>
 </ul>
 
 <app-book-detail [book]="selectedBook"></app-book-detail>
+
