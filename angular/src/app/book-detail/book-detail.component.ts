@@ -45,4 +45,8 @@ export class BookDetailComponent implements OnInit {
       books =>{ this.languages = books;}
     );
   }
+
+  refresh(){
+    window.location.reload();
+  }
 }

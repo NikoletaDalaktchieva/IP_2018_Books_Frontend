@@ -29,7 +29,7 @@ export class BookService {
 
   getBooks (): Observable<BookDescription[]>{
     console.log("Language id: " + LoginComponent.languageId.toString());
-    return this.http.get(AppComponent.url + "/books/descriptions")
+    return this.http.get(AppComponent.url + "/books")
       .map(this.extractData)
       .catch(this.handleErrorObservable);
   }
@@ -38,8 +38,8 @@ export class BookService {
   getBook (id, languageId): Observable<BookDescription>{
     let url = "";
     if(languageId){
-      url =id.toString() + "/description/" + languageId.toString()
-    }else url = id.toString();
+      url =id.toString() + "/descriptions/" + languageId.toString(); //tuk po ezik
+    }else url = "descriptions/" + id.toString(); //tuk go pravq po ID
     return this.http.get(AppComponent.url + "/books/" + url)
       .map(this.extractData)
       .catch(this.handleErrorObservable);

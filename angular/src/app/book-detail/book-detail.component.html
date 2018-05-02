@@ -7,6 +7,6 @@
 
 <ul>
   <li href="#" *ngFor="let language of languages">
-    <p routerLink="/books/{{book.id}}/description/{{language.id}}">{{language.name}}</p>
+    <p (click)="refresh()" routerLink="/books/{{book.book.id}}/description/{{language.id}}">{{language.name}}</p>
   </li>
 </ul>
