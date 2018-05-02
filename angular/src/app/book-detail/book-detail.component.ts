@@ -5,6 +5,7 @@ import {ActivatedRoute} from "@angular/router";
 import {of} from "rxjs/observable/of";
 import {BooksComponent} from "../books/books.component";
 import {BookDescription} from "../bookDescription";
+import {Language} from "../language";
 
 @Component({
   selector: 'app-book-detail',
@@ -19,21 +20,29 @@ export class BookDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getBook();
+    this.getLanguages();
   }
 
 
   book: BookDescription;
+  languages: Language[];
 
   getBook(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    console.log("id " + id);
+    const languageId = +this.route.snapshot.paramMap.get('languageId');
 
-    this.bookService.getBook(id).subscribe(
+    this.bookService.getBook(id, languageId).subscribe(
       book =>{ this.book = book;}
     );
   }
 
   getImg(book : Book){
     return require("" + book.coverPath);
+  }
+
+  getLanguages(){
+    this.bookService.getLanguages().subscribe(
+      books =>{ this.languages = books;}
+    );
   }
 }

@@ -4,3 +4,9 @@
 <p>{{book.description}}</p>
 <p>{{book.pages}}</p>
 <p>{{book.book.genre}}</p>
+
+<ul>
+  <li href="#" *ngFor="let language of languages">
+    <p routerLink="/books/{{book.id}}/description/{{language.id}}">{{language.name}}</p>
+  </li>
+</ul>

@@ -9,6 +9,7 @@ import {AppComponent} from "./app.component";
 import {BookDescription} from "./bookDescription";
 import {of} from "rxjs/observable/of";
 import {BooksComponent} from "./books/books.component";
+import {Language} from "./language";
 @Injectable()
 export class BookService {
 
@@ -28,14 +29,24 @@ export class BookService {
 
   getBooks (): Observable<BookDescription[]>{
     console.log("Language id: " + LoginComponent.languageId.toString());
-    return this.http.get(AppComponent.url + "/books")
+    return this.http.get(AppComponent.url + "/books/descriptions")
       .map(this.extractData)
       .catch(this.handleErrorObservable);
   }
 
 
-  getBook (id): Observable<BookDescription>{
-    return this.http.get(AppComponent.url + "/books/" + id)
+  getBook (id, languageId): Observable<BookDescription>{
+    let url = "";
+    if(languageId){
+      url =id.toString() + "/description/" + languageId.toString()
+    }else url = id.toString();
+    return this.http.get(AppComponent.url + "/books/" + url)
+      .map(this.extractData)
+      .catch(this.handleErrorObservable);
+  }
+
+  getLanguages(): Observable<Language[]>{
+    return this.http.get(AppComponent.url + "/languages")
       .map(this.extractData)
       .catch(this.handleErrorObservable);
   }
