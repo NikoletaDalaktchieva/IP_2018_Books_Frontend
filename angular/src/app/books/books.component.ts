@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from '../book';
 import { BookService } from '../book.service';
 import {Observable} from "rxjs/Observable";
+import {BookDescription} from "../bookDescription";
 
 @Component({
   selector: 'app-books',
@@ -11,8 +12,8 @@ import {Observable} from "rxjs/Observable";
 export class BooksComponent implements OnInit {
   config: { heroesUrl: any; textfile: any; };
 
-  observableBooks: Observable<Book[]>;
-  books: Book[];
+  observableBooks: Observable<BookDescription[]>;
+  books: BookDescription[];
 
   constructor(private bookService: BookService) {}
 
@@ -21,10 +22,14 @@ export class BooksComponent implements OnInit {
   }
 
   getBooks(){
-
     this.observableBooks = this.bookService.getBooks();
     this.observableBooks.subscribe(
       books => this.books = books);
+  }
+
+  getImg(book: Book){
+    console.log(book.coverPath);
+    return require("" + book.coverPath);
 
   }
 

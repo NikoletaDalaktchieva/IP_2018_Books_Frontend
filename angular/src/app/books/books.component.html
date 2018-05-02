@@ -6,6 +6,7 @@
 
 <ul>
   <li href="#" *ngFor="let book of books">
+    <img id = "logo" src="{{getImg(book.book)}}">
     {{book.name}}
   </li>
 </ul>

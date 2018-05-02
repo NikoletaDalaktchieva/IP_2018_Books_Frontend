@@ -6,6 +6,7 @@ import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/catch";
 import {LoginComponent} from "./login/login.component";
 import {AppComponent} from "./app.component";
+import {BookDescription} from "./bookDescription";
 @Injectable()
 export class BookService {
 
@@ -23,9 +24,9 @@ export class BookService {
 
   constructor(private http: HttpClient) {}
 
-  getBooks (): Observable<Book[]>{
+  getBooks (): Observable<BookDescription[]>{
     console.log("Language id: " + LoginComponent.languageId.toString());
-    return this.http.get(AppComponent.url + "/languages")
+    return this.http.get(AppComponent.url + "/books")
       .map(this.extractData)
       .catch(this.handleErrorObservable);
   }
