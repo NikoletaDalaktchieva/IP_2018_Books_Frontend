@@ -14,6 +14,7 @@ export class BooksComponent implements OnInit {
 
   observableBooks: Observable<BookDescription[]>;
   books: BookDescription[];
+  descriotion ="alaabajndshnhdjs";
 
   constructor(private bookService: BookService) {}
 
@@ -27,10 +28,8 @@ export class BooksComponent implements OnInit {
       books => this.books = books);
   }
 
-  getImg(book: Book){
-    console.log(book.coverPath);
+  getImg(book : Book){
     return require("" + book.coverPath);
-
   }
 
 }

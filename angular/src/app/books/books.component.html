@@ -3,10 +3,17 @@
 
 <app-book-detail [book]="selectedBook"></app-book-detail>
 
+<div id = "books">
 
 <ul>
   <li href="#" *ngFor="let book of books">
-    <img id = "logo" src="{{getImg(book.book)}}">
-    {{book.name}}
+    <img id = "cover" src="{{getImg(book.book)}}">
+    <div id = "information">
+      <h1>{{book.name}}</h1>
+      <p>{{book.description}}</p>
+    </div>
+
   </li>
 </ul>
+
+</div>
