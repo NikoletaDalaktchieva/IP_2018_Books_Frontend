@@ -8,6 +8,7 @@ export class UserService {
 
   logIn(json){
     console.log(json);
+    return this.http.post(AppComponent.url + "/users/login", json).subscribe();
   }
 
 

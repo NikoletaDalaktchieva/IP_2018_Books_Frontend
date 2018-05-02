@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {HeaderComponent} from "../header/header.component";
-import {NgForm} from "@angular/forms";
 import {UserService} from "../user.service";
+import {AuthService, FacebookLoginProvider, GoogleLoginProvider} from "angular5-social-login";
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,7 @@ import {UserService} from "../user.service";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private socialAuthService: AuthService) { }
 
   static languageId = 1;
   singUp = false;
@@ -48,6 +48,19 @@ export class LoginComponent implements OnInit {
       this.userService.singUp(this.json);
       this.json = null;
     }else console.log("Wrong password");
+  }
+
+
+  //google
+  public socialSignIn(socialPlatform : string) {
+    let socialPlatformProvider;
+    socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+
+    this.socialAuthService.signIn(socialPlatformProvider).then(
+      (userData) => {
+        console.log(socialPlatform+" sign in data : " , userData);
+      }
+    );
   }
 
 

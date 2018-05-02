@@ -9,8 +9,7 @@
       <input type="password" placeholder="Enter Password"  #u_password required>
       <form id = "login1" class = "buttons login" (click)="logIn(u_name.value, u_password.value)">Log in</form>
       <form id = "signupButn1" class = "buttons signupButn" (click)="openSingUpForm()">Sign up	</form>
-      <button class="loginBtn" id = "facebook">Login with Facebook</button>
-      <button class="loginBtn" id = "google">Login with Google</button>
+      <button class="loginBtn" id = "google" (click)="socialSignIn()">Login with Google</button>
 
     </div>
 

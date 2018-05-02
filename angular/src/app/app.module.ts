@@ -13,7 +13,23 @@ import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
 import { LoginComponent } from './login/login.component';
 import {UserService} from "./user.service";
+import {
+  SocialLoginModule,
+  AuthServiceConfig,
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+} from "angular5-social-login";
 
+export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+    [
+      {
+        id: GoogleLoginProvider.PROVIDER_ID,
+        provider: new GoogleLoginProvider("299339477600-t8pnbjaulsupvjmj55e87oco4kibujdc.apps.googleusercontent.com")
+      },
+    ]);
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -28,8 +44,17 @@ import {UserService} from "./user.service";
   imports: [
     BrowserModule,
     HttpClientModule,
+    SocialLoginModule
   ],
-  providers: [BookService, MessageService, UserService],
+  providers: [
+    BookService,
+    MessageService,
+    UserService,
+    {
+      provide: AuthServiceConfig,
+      useFactory: getAuthServiceConfigs
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
