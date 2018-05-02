@@ -4,6 +4,8 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import "rxjs/add/operator/map";
 import {Observable} from "rxjs/Observable";
 import "rxjs/add/operator/catch";
+import {LoginComponent} from "./login/login.component";
+import {AppComponent} from "./app.component";
 @Injectable()
 export class BookService {
 
@@ -18,11 +20,12 @@ export class BookService {
     return Observable.throw(error.message || error);
   }
 
-  url = 'http://localhost:8080/api/languages/';
+
   constructor(private http: HttpClient) {}
 
   getBooks (): Observable<Book[]>{
-    return this.http.get(this.url)
+    console.log("Language id: " + LoginComponent.languageId.toString());
+    return this.http.get(AppComponent.url + "/languages")
       .map(this.extractData)
       .catch(this.handleErrorObservable);
   }

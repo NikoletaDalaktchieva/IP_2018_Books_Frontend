@@ -11,9 +11,16 @@ export class HeaderComponent implements OnInit {
   search = require('./img/search.png');
   logout = require('./img/logout.png');
 
+  static logInForm: boolean;
+
   constructor() { }
 
   ngOnInit() {
+    HeaderComponent.closeLogInForm();
   }
+
+  openLogInForm(){ HeaderComponent.logInForm = true; }
+  static closeLogInForm(){ HeaderComponent.logInForm = false; }
+  isOpen(){ return HeaderComponent.logInForm; }
 
 }

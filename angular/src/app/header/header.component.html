@@ -2,5 +2,9 @@
   <img id = "logo" src="{{logo}}">
   <input type="search" id = "search" placeholder="Search..">
   <img id = "searchBtn" src="{{search}}">
-  <img id = "user" src="{{logout}}">
+  <img id = "user" (click)="openLogInForm()" src="{{logout}}">
 </header>
+
+
+<app-login *ngIf="isOpen()"></app-login>
+

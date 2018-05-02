@@ -11,6 +11,8 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
 import {BookService} from "./book.service";
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
+import { LoginComponent } from './login/login.component';
+import {UserService} from "./user.service";
 
 
 @NgModule({
@@ -20,13 +22,14 @@ import { MessageService } from './message.service';
     GenresComponent,
     BooksComponent,
     BookDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
   ],
-  providers: [BookService, MessageService,],
+  providers: [BookService, MessageService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

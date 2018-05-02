@@ -1,11 +1,11 @@
 
 {{title}}
 
+<app-book-detail [book]="selectedBook"></app-book-detail>
+
+
 <ul>
-  <li *ngFor="let book of books" >
+  <li href="#" *ngFor="let book of books">
     {{book.name}}
   </li>
 </ul>
-
-<app-book-detail [book]="selectedBook"></app-book-detail>
-

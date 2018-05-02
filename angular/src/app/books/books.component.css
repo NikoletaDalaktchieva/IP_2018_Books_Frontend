@@ -1,0 +1,17 @@
+ul {
+  flex-direction: column;
+  flex-wrap: wrap;
+  display: flex;
+  height: 15vh;
+  list-style-type: none;
+}
+ul li {
+  flex: 1 0 25%;
+}
+
+li {
+  font-style: italic;
+  font-size: 120%;
+  cursor: pointer;
+}
+

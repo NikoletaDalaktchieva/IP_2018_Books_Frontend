@@ -1,0 +1,42 @@
+<div *ngIf="!singUp" id="loginForm" class="modal">
+  <form class="modal-content animate">
+
+    <div class="container">
+      <label for="x" id = "x" (click)="closeForm()"><b>X</b></label><br>
+
+
+      <input type="text" placeholder="Enter Username"  #u_name required>
+      <input type="password" placeholder="Enter Password"  #u_password required>
+      <form id = "login1" class = "buttons login" (click)="logIn(u_name.value, u_password.value)">Log in</form>
+      <form id = "signupButn1" class = "buttons signupButn" (click)="openSingUpForm()">Sign up	</form>
+      <button class="loginBtn" id = "facebook">Login with Facebook</button>
+      <button class="loginBtn" id = "google">Login with Google</button>
+
+    </div>
+
+    <div class="container" id = "forgotPass">
+      <span class="pass"><a href="#">Forgot password?</a></span>
+    </div>
+
+  </form>
+</div>
+
+
+<div *ngIf="singUp" id="singupForm" class="modal">
+  <form class="modal-content animate">
+
+    <div class="container">
+      <label for="x" id = "x" (click)="closeForm()"><b>X</b></label><br>
+
+      <input type="text" placeholder="Enter Username" name="name" #name required>
+      <input type="text" placeholder="Enter Email" name="email" #email required>
+      <input type="password" placeholder="Enter Password" name="pass" #password required>
+      <input type="password" placeholder="Enter Confirm Password" name="cPass" #confirmPassword required>
+
+      <form type="submit" id = "signupButn2" class = "buttons signupButn" (click)="singingUp(name.value, email.value ,password.value, confirmPassword.value)" >Sign up	</form>
+      <form type="submit" id = "login2" class = "buttons login" (click)="openLogInForm()" >Log in</form>
+
+    </div>
+
+  </form>
+</div>
