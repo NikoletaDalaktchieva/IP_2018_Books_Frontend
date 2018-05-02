@@ -1,19 +1,13 @@
-
-{{title}}
-
-<app-book-detail [book]="selectedBook"></app-book-detail>
-
+<app-genres></app-genres>
 <div id = "books">
+  <ul>
+    <li href="#" *ngFor="let book of books">
+      <img id = "cover" src="{{getImg(book.book)}}"  routerLink="/books/{{book.id}}">
+      <div id = "information">
+        <h3  routerLink="/books/{{book.id}}">{{book.name}}</h3>
+        <p>{{book.book.author.name}}</p>
+      </div>
 
-<ul>
-  <li href="#" *ngFor="let book of books">
-    <img id = "cover" src="{{getImg(book.book)}}">
-    <div id = "information">
-      <h3>{{book.name}}</h3>
-      <p>{{book.book.author.name}}</p>
-    </div>
-
-  </li>
-</ul>
-
+    </li>
+  </ul>
 </div>

@@ -19,6 +19,8 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider,
 } from "angular5-social-login";
+import { AppRoutingModule } from './/app-routing.module';
+import {FormsModule} from "@angular/forms";
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -44,7 +46,8 @@ export function getAuthServiceConfigs() {
   imports: [
     BrowserModule,
     HttpClientModule,
-    SocialLoginModule
+    SocialLoginModule,
+    AppRoutingModule
   ],
   providers: [
     BookService,

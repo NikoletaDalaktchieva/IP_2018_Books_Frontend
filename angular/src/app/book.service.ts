@@ -7,6 +7,8 @@ import "rxjs/add/operator/catch";
 import {LoginComponent} from "./login/login.component";
 import {AppComponent} from "./app.component";
 import {BookDescription} from "./bookDescription";
+import {of} from "rxjs/observable/of";
+import {BooksComponent} from "./books/books.component";
 @Injectable()
 export class BookService {
 
@@ -30,7 +32,5 @@ export class BookService {
       .map(this.extractData)
       .catch(this.handleErrorObservable);
   }
-
-
 
 }
