@@ -9,8 +9,8 @@
   <li href="#" *ngFor="let book of books">
     <img id = "cover" src="{{getImg(book.book)}}">
     <div id = "information">
-      <h1>{{book.name}}</h1>
-      <p>{{book.description}}</p>
+      <h3>{{book.name}}</h3>
+      <p>{{book.book.author.name}}</p>
     </div>
 
   </li>
