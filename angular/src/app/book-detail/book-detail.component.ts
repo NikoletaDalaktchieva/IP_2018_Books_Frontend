@@ -4,6 +4,7 @@ import {BookService} from "../book.service";
 import {ActivatedRoute} from "@angular/router";
 import {of} from "rxjs/observable/of";
 import {BooksComponent} from "../books/books.component";
+import {BookDescription} from "../bookDescription";
 
 @Component({
   selector: 'app-book-detail',
@@ -13,17 +14,26 @@ import {BooksComponent} from "../books/books.component";
 export class BookDetailComponent implements OnInit {
 
   constructor( private route: ActivatedRoute,
-               private heroService: BookService) { }
+               private bookService: BookService) { }
 
 
   ngOnInit() {
     this.getBook();
-
   }
 
 
+  book: BookDescription;
+
   getBook(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    BooksComponent.getBook(id);
+    console.log("id " + id);
+
+    this.bookService.getBook(id).subscribe(
+      book =>{ this.book = book;}
+    );
+  }
+
+  getImg(book : Book){
+    return require("" + book.coverPath);
   }
 }

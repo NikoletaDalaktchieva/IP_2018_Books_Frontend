@@ -21,6 +21,7 @@ li {
 #cover{
   width: 40%;
   float: left;
+  cursor: pointer;
 }
 
 #information{
@@ -32,4 +33,8 @@ li {
 
 #books{
   margin: 2%;
+}
+
+h3{
+  cursor: pointer;
 }

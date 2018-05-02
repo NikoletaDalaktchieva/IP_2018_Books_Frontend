@@ -33,4 +33,11 @@ export class BookService {
       .catch(this.handleErrorObservable);
   }
 
+
+  getBook (id): Observable<BookDescription>{
+    return this.http.get(AppComponent.url + "/books/" + id)
+      .map(this.extractData)
+      .catch(this.handleErrorObservable);
+  }
+
 }
